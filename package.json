@@ -177,5 +177,15 @@
       "@babel/plugin-syntax-dynamic-import"
     ]
   },
-  "proxy":"http://172.16.40.135:8080"
+  "proxy":{
+    "/api":{
+      "target":"http://172.16.40.135:8080",
+      "changeOrigin": true,
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+
 }

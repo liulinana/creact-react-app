@@ -2,16 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 
-axios.defaults.baseURL = 'https://api.example.com';
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
-
-let instance = axios.create({
-    baseURL: 'https://some-domain.com/api/',
-    timeout: 1000,
-    headers: {'X-Custom-Header': 'foobar'}
-
-});
+axios.defaults.baseURL = 'http://172.16.40.135:8080';
 
 let http = {
     get:"",
@@ -23,17 +14,36 @@ let http = {
     request:""
 };
 
-http.get = function (url,data) {
-    let params = qs.stringify(data)
+const ajaxPromise =function (method, url, data){
     return new Promise ( (resolve,reject) => {
-        axios.get(url,params).then(
+        axios({method,url,data}).then(
             (res) => {
                 resolve(res)
             }
         )
     })
+};
+
+http.get = function (url,data) {
+    let params = qs.stringify(data);
+    let method = "get";
+    return ajaxPromise(method,url,params)
 
 };
 
-export default http
+http.post = function (url,data) {
+    let params = qs.stringify(data);
+    let method = "post";
+    return ajaxPromise(method,url,params)
 
+};
+
+export default http;
+
+// new Promise ( (resolve,reject) => {
+//     axios.get(url,params).then(
+//         (res) => {
+//             resolve(res)
+//         }
+//     )
+// })

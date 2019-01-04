@@ -19,8 +19,7 @@ export default class Login extends React.Component {
 
 
     handelClick = () => {
-        debugger
-        http.get(`/rcsapi/IMEISign/list?pageNum=${1}`)
+        http.get(`/rcsapi/jdRisk/find?pageNum=${1}&pageSize=${10}`)
         // this.props.dispatch(addTodo("ddddddd"))
     }
     render() {
