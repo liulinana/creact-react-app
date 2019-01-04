@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Form, Input, Button, notification, Icon, message, Row, Col } from 'antd'
 import createHistory from 'history/createHashHistory'
 import {Containerization} from '../component/container';
-import {addTodo} from '../redux/actions'
+import {addTodo} from '../redux/actions';
+import http from '../axios/axios';
 
 const FormItem = Form.Item;
 const history = createHistory();
@@ -12,14 +13,15 @@ const history = createHistory();
     })
 )
 @Form.create()
-export default class Login extends Component {
+export default class Login extends React.Component {
     static getDerivedStateFromProps(){
     }
 
 
     handelClick = () => {
-        // http.get(`/IMEISign/list?pageNum=${1}`)
-        this.props.dispatch(addTodo("ddddddd"))
+        debugger
+        http.get(`/rcsapi/IMEISign/list?pageNum=${1}`)
+        // this.props.dispatch(addTodo("ddddddd"))
     }
     render() {
         const { form } = this.props;
