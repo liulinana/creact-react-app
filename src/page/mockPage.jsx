@@ -13,10 +13,8 @@ const history = createHistory();
     })
 )
 @Form.create()
-export default class Login extends React.Component {
-    static getDerivedStateFromProps(){
-    }
-
+export default class MockPage extends React.Component {
+    // static getDerivedStateFromProps(){}
 
     handelClick = () => {
         http.get(`/rcsapi/jdRisk/find?pageNum=${1}&pageSize=${10}`)
