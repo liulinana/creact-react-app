@@ -54,8 +54,11 @@
     "react-dev-utils": "^6.1.1",
     "react-dom": "^16.6.3",
     "react-loadable": "^5.5.0",
+    "react-redux": "^6.0.0",
     "react-router": "^4.4.0-beta.0",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-promise": "^0.6.0",
     "resolve": "1.8.1",
     "roadhog": "^2.5.0-beta.1",
     "sass-loader": "7.1.0",
@@ -161,7 +164,8 @@
         {
           "legacy": true
         }
-      ],[
+      ],
+      [
         "import",
         {
           "libraryName": "antd",

@@ -2,7 +2,16 @@ import React from 'react';
 import {BrowserRouter,Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory'
 import Loadable from 'react-loadable';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
+import rootReducer from '../redux/reducers/rootReducer'
 let history = createBrowserHistory()
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(promise)
+);
 
 const LoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
@@ -34,18 +43,20 @@ export default class Router extends React.Component{
      render () {
          return (
              <div>
-                 <BrowserRouter>
-                     <Switch>
-                         {route.map((v,k)=>(
-                             <Route
-                                 key={k}
-                                 path={v.path}
-                                 exact={v.exact}
-                                 component={v.component}
-                             />
-                         ))}
-                     </Switch>
-                 </BrowserRouter>
+                 <Provider store={store}>
+                     <BrowserRouter>
+                         <Switch>
+                             {route.map((v,k)=>(
+                                 <Route
+                                     key={k}
+                                     path={v.path}
+                                     exact={v.exact}
+                                     component={v.component}
+                                 />
+                             ))}
+                         </Switch>
+                     </BrowserRouter>
+                 </Provider>
              </div>
          )
      }
