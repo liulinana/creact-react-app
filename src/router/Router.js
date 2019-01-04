@@ -1,45 +1,24 @@
-import React from 'react';
-import {BrowserRouter,Route, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory'
-import Loadable from 'react-loadable';
+import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
+import *as Routers from './Routers.config';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
-import rootReducer from '../redux/reducers/rootReducer'
-let history = createBrowserHistory()
+import rootReducer from '../redux/reducers/rootReducer';
+let history = createBrowserHistory();
 
 const store = createStore(
     rootReducer,
     applyMiddleware(promise)
 );
 
-const LoadingComponent = ({ isLoading, error }) => {
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-    else if (error) {
-        return <div>Sorry,未找到页面.</div>;
-    }
-    else {
-        return null;
-    }
-}
-
-const Login = Loadable({
-    loader: () => import('../page/login/Login'),
-    loading: LoadingComponent
-});
-const App = Loadable({
-    loader: () => import('../App'),
-    loading: LoadingComponent
-});
-
 const route = [
-    {path:"/",exact:true,component:Login},
-    {path:"/frame",exact:false,component:App},
+    {path:"/",exact:true,component:Routers.Login},
+    {path:"/frame",exact:false,component:Routers.App},
 ];
 
-export default class Router extends React.Component{
+export default class Router extends Component{
      render () {
          return (
              <div>

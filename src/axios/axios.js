@@ -39,11 +39,3 @@ http.post = function (url,data) {
 };
 
 export default http;
-
-// new Promise ( (resolve,reject) => {
-//     axios.get(url,params).then(
-//         (res) => {
-//             resolve(res)
-//         }
-//     )
-// })

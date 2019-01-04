@@ -1,22 +1,5 @@
 import React from 'react';
-import Loadable from 'react-loadable';
-
-const LoadingComponent = ({ isLoading, error }) => {
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-    else if (error) {
-        return <div>Sorry,未找到页面.</div>;
-    }
-    else {
-        return null;
-    }
-};
-const mockPage = Loadable({
-    loader: () => import('../page/mockPage'),
-    loading: LoadingComponent
-});
-
+import *as Routers from './Routers.config'
 
 const allMenu = [
     {
@@ -24,7 +7,7 @@ const allMenu = [
         url: 'frame/home',
         exact:true,
         icon: 'home',
-        component: mockPage
+        component:Routers.mockPage
     }, {
         name: '音乐模块',
         url: 'frame/mockPage',
@@ -35,7 +18,7 @@ const allMenu = [
                 name: '音乐系列',
                 url: 'frame/mockPage/mus',
                 exact:true,
-                component: mockPage
+                component: Routers.mockPage
             },
         ]
     }, {
