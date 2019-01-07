@@ -30,16 +30,6 @@ export default class Login extends React.Component {
 
     };
 
-    // 返回一个弹框对象，提示用户名和密码
-    openNotificationWithIcon = (type) => {
-        notification[type]({
-            message: '用户名&密码',
-            description: '都是：123',
-            duration: 6,
-            icon: <Icon type="smile-circle" style={{ color: '#108ee9' }} />,
-        })
-    };
-
     render() {
         console.log(2)
         const { form } = this.props;
