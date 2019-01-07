@@ -1,12 +1,9 @@
 import React from 'react'
-import { Form, Input, Button, notification, Icon, message, Row, Col } from 'antd'
-import createHistory from 'history/createHashHistory'
+import { Form, Button } from 'antd'
 import {Containerization} from '../component/container';
 import {addTodo} from '../redux/actions';
 import http from '../axios/axios';
 
-const FormItem = Form.Item;
-const history = createHistory();
 @Containerization(
     state => ({
         selectsData: state.todos.selectsData,
@@ -17,13 +14,17 @@ export default class MockPage extends React.Component {
     // static getDerivedStateFromProps(){}
 
     handelClick = () => {
-        http.get(`/rcsapi/jdRisk/find?pageNum=${1}&pageSize=${10}`)
-        // this.props.dispatch(addTodo("ddddddd"))
-    }
+        this.props.dispatch(addTodo("ddddddd"))
+    };
+
+    handelSearch = () => {
+        http.get(`/rcslmodel?modelActionType=${"1"}&status=${"VALID"}&pageNum=${1}&pageSize=${10}`)
+    };
+
     render() {
-        const { form } = this.props;
         return (
                 <div stylename="box">
+                    <Button onClick={this.handelSearch}>接口</Button>
                     <Button onClick={this.handelClick}>dispatch</Button>
                     <p>{this.props.selectsData}</p>
                 </div>
