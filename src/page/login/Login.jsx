@@ -6,7 +6,7 @@ const FormItem = Form.Item;
 
 @Form.create()
 export default class Login extends React.Component {
-    static getDerivedStateFromProps(){}
+    // static getDerivedStateFromProps(){}
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -29,7 +29,6 @@ export default class Login extends React.Component {
     };
 
     render() {
-        console.log(2)
         const { form } = this.props;
         const { getFieldDecorator } = form;
         return (
