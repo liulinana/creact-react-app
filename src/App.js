@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Icon, Switch, Layout, Row, Col} from 'antd';
 import { Route, Link } from "react-router-dom";
 import allMenu from '../src/router/Menu';
+import Breadcrumbs from "./component/Breadcrumbs";
 
 const SubMenu = Menu.SubMenu;
 const { Header, Content, Sider: Frame } = Layout;
@@ -141,7 +142,9 @@ class App extends Component {
                             </Menu>
                         </Frame>
                         <Layout style={{ padding: '0 24px 24px' }}>
-                            {/*<Breadcrumbs/>*/}
+                            <div>
+                                <Breadcrumbs/>
+                            </div>
                             <Content
                                 style={{
                                     background: '#fff',
