@@ -18,7 +18,6 @@ export default class MockPage extends React.Component {
     };
 
     handelSearch = () => {
-        http.get(`/rcslmodel?modelActionType=${"1"}&status=${"VALID"}&pageNum=${1}&pageSize=${10}`)
     };
 
     render() {

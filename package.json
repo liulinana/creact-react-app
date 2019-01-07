@@ -179,7 +179,7 @@
   },
   "proxy":{
     "/api":{
-      "target":"https://rcs-admin-dev.suixingpay.com",
+      "target":"",
       "changeOrigin": true,
       "secure": false,
       "pathRewrite": {

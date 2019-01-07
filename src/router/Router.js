@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import *as Routers from './Routers.config';
@@ -18,7 +18,7 @@ const route = [
     {path:"/frame",exact:false,component:Routers.App},
 ];
 
-export default class Router extends Component{
+export default class Router extends React.Component{
      render () {
          return (
              <div>

@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 
-axios.defaults.baseURL = 'https://rcs-admin-dev.suixingpay.com';
+axios.defaults.baseURL = '';
 
 let http = {
     get:"",
