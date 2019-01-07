@@ -1,15 +1,13 @@
 import { VisibilityFilters } from '../actions'
-import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from '../actionTypes';
-import { combineReducers } from 'redux';
+import { SET_VISIBILITY_FILTER } from '../actionTypes';
 
 const initialState = {
     visibilityFilter: VisibilityFilters,
     todos: []
 };
-const { SHOW_ALL } = VisibilityFilters;
 
 
-export function visibilityFilter(state = SHOW_ALL, action) {
+export function visibilityFilter(state = initialState, action) {
     switch (action.type) {
         case SET_VISIBILITY_FILTER:
             return action.filter

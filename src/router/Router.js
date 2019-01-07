@@ -1,13 +1,11 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
 import *as Routers from './Routers.config';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import rootReducer from '../redux/reducers/rootReducer';
-let history = createBrowserHistory();
 
 const store = createStore(
     rootReducer,

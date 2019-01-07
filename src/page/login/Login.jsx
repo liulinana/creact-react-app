@@ -1,13 +1,11 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Form, Input, Button, notification, Icon, message, Row, Col } from 'antd'
-import createHistory from 'history/createHashHistory'
-
 import './Login.less'
+
 const FormItem = Form.Item;
-const history = createHistory();
 
 @Form.create()
-export default class Login extends Component {
+export default class Login extends React.Component {
     static getDerivedStateFromProps(){
         console.log(1)
     }

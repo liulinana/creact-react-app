@@ -1,4 +1,3 @@
-import { handleAction } from 'redux-actions';
 import { VisibilityFilters } from '../actions'
 import { ADD_TODO, TOGGLE_TODO,ADD_TODO_S } from '../actionTypes';
 
@@ -29,6 +28,8 @@ const initialState = {
 //         })
 //     }
 // })
+// { handleAction } 导入 'redux-actions';
+
 export function todos(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO_S:
