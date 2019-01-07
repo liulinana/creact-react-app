@@ -1,20 +1,18 @@
 import React from 'react'
-import { Form, Input, Button, notification, Icon, message, Row, Col } from 'antd'
+import { Form, Input, Button, message, Row, Col } from 'antd'
 import './Login.less'
 
 const FormItem = Form.Item;
 
 @Form.create()
 export default class Login extends React.Component {
-    static getDerivedStateFromProps(){
-        console.log(1)
-    }
+    static getDerivedStateFromProps(){}
 
     handleSubmit = (e) => {
         e.preventDefault();
         let n = this.props.form.getFieldsValue().username;
         let p = this.props.form.getFieldsValue().password;
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields((err) => {
             if (!err) {
                 if (n === '123' && p === '123') {
                     // 表单的路由处理
