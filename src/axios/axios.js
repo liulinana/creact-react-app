@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message } from 'antd';
 import qs from 'qs';
 
 
@@ -19,6 +20,11 @@ const ajaxPromise =function (method, url, data){
         axios({method,url,data}).then(
             (res) => {
                 resolve(res)
+            }
+        ).catch(
+            err => {
+                message.error(err.message, 3)
+                reject(err);
             }
         )
     })
