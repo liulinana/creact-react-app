@@ -61,6 +61,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
     "roadhog": "^2.5.0-beta.1",
     "sass-loader": "7.1.0",
@@ -177,9 +178,9 @@
       "@babel/plugin-syntax-dynamic-import"
     ]
   },
-  "proxy":{
-    "/api":{
-      "target":"",
+  "proxy": {
+    "/api": {
+      "target": "",
       "changeOrigin": true,
       "secure": false,
       "pathRewrite": {
@@ -187,5 +188,4 @@
       }
     }
   }
-
 }

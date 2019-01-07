@@ -1,6 +1,6 @@
 import { handleAction } from 'redux-actions';
 import { VisibilityFilters } from '../actions'
-import { ADD_TODO, TOGGLE_TODO } from '../actionTypes';
+import { ADD_TODO, TOGGLE_TODO,ADD_TODO_S } from '../actionTypes';
 
 const initialState = {
     visibilityFilter: VisibilityFilters,
@@ -31,6 +31,13 @@ const initialState = {
 // })
 export function todos(state = initialState, action) {
     switch (action.type) {
+        case ADD_TODO_S:
+            const data = null;
+            action.promise().then(res=>({data:res}))
+            return {
+                ...state,
+                selectsData:data ===null?"null":data
+            };
         case ADD_TODO:
             return {
                 ...state,
