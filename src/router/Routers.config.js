@@ -6,7 +6,7 @@ const LoadingComponent = ({ isLoading, error }) => {
         return <div>Loading...</div>;
     }
     else if (error) {
-        return <div>Sorry,未找到此页面.</div>;
+        return <div>小主真可怜,未找到此页面.</div>;
     }
     else {
         return null;

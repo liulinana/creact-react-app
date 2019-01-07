@@ -8,10 +8,13 @@ export const ActionCreator = (type, url, method, data,key) => (
                    return new Promise((resolve, reject) => {
                         let params = qs.stringify(data);
                         axios({method, url, params}).then(
-                            (res) => {
+                            res => {
                                resolve(res.data)
                             }
-                        )
+                        ).catch(
+                            err => {
+                                reject(err);
+                        })
                   })},
             type: type,
             payload: key,
