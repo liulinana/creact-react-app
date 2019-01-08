@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Input, Button, message, Row, Col } from 'antd'
 import './Login.less'
+import { isAuthenticated, setCurrentLoginUser } from '../../component/container'
 
 const FormItem = Form.Item;
 
@@ -14,10 +15,18 @@ export default class Login extends React.Component {
         let p = this.props.form.getFieldsValue().password;
         this.props.form.validateFields((err) => {
             if (!err) {
+                const res = {
+                    name:n,
+                    password:p
+                };
+                setCurrentLoginUser(res);
                 if (n === '123' && p === '123') {
                     // 表单的路由处理
-                    message.success("登陆成功!")
-                    this.props.history.push('/frame');
+                    if(isAuthenticated()) {
+                        this.props.history.push('/frame')
+                        message.success("登陆成功!");
+                    }
+
                 } else if (n === '123' && p !== '123') {
                     message.error("请输入正确的密码！")
                 } else {

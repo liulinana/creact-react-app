@@ -3,6 +3,7 @@ import { Menu, Icon, Switch, Layout, Row, Col} from 'antd';
 import { Route, Link } from "react-router-dom";
 import allMenu from '../src/router/Menu';
 import Breadcrumbs from "./component/Breadcrumbs";
+import { toLogin, isAuthenticated } from './component/container';
 
 const SubMenu = Menu.SubMenu;
 const { Header, Content, Sider: Frame } = Layout;
@@ -34,6 +35,13 @@ class App extends Component {
         collapsed: false,
     };
 
+    componentWillMount () {
+        if(isAuthenticated()){}
+        else{
+            this.props.history.push('/')
+        }
+    }
+
     //更换主题
     changeTheme = (value) => {
         this.setState({
@@ -53,6 +61,11 @@ class App extends Component {
             collapsed: !this.state.collapsed,
         });
     };
+
+    toLogin = () => {
+        toLogin();
+        this.props.history.push(`/`)
+    }
 
     render() {
         return (
@@ -80,8 +93,8 @@ class App extends Component {
                                         onClick={this.toggle}
                                     />
                                 </Col>
-                                <div style={{marginLeft: '94%'}}>
-                                        <Link to={`/`}>
+                                <div onClick={this.toLogin} style={{marginLeft: '94%'}}>
+                                        <Link to={"#"}>
                                             <span style={{color:"white"}}>退出登录</span>
                                             <Icon type="logout" />
                                         </Link>

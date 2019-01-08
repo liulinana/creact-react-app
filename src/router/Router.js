@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import *as Routers from './Routers.config';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
