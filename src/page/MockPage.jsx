@@ -1,8 +1,8 @@
 import React from 'react'
 import { Form, Button } from 'antd'
-import {Containerization} from '../component/container';
-import {addTodo} from '../redux/actions';
-import {ActionCreator} from '../request/Middleware';
+import { Containerization } from '../component/Container';
+import { addTodo } from '../redux/actions';
+import { ActionCreator } from '../request/Middleware';
 import http from '../axios/axios';
 
 @Containerization(
