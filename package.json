@@ -178,5 +178,5 @@
       "@babel/plugin-syntax-dynamic-import"
     ]
   },
-  "proxy": "http://IP/端口"
+  "proxy": "http://ip/端口号"
 }
