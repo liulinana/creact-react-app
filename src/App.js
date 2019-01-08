@@ -155,7 +155,7 @@ class App extends Component {
                             </Menu>
                         </Frame>
                         <Layout style={{ padding: '0 24px 24px' }}>
-                            <div>
+                            <div style={{margin: '15px 0'}}>
                                 <Breadcrumbs/>
                             </div>
                             <Content

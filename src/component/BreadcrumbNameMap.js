@@ -1,5 +1,5 @@
 const breadcrumbNameMap = {
-    '/frame': 'Home',
+    // '/frame': 'Home',
     '/frame/home': '首页',
     '/frame/mockPage': '音乐模块',
     '/frame/mockPage/mus': '音乐系列',

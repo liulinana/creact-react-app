@@ -20,7 +20,7 @@ const Breadcrumbs = withRouter((props) => {
     });
     const breadcrumbItems = [(
         <Breadcrumb.Item key="home">
-            <Link to="/"></Link>
+            {/*<Link to="/"></Link>*/}
         </Breadcrumb.Item>
     )].concat(extraBreadcrumbItems);
     return (
