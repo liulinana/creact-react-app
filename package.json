@@ -178,14 +178,5 @@
       "@babel/plugin-syntax-dynamic-import"
     ]
   },
-  "proxy": {
-    "/api": {
-      "target": "",
-      "changeOrigin": true,
-      "secure": false,
-      "pathRewrite": {
-        "^/api": "/api"
-      }
-    }
-  }
+  "proxy": "http://IP/端口"
 }
