@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, message, Row, Col } from 'antd';
 import './Login.less';
-import { isAuthenticated, setCurrentLoginUser } from '../../component/container';
+import { isAuthenticated, setCurrentLoginUser } from '../../component/Container';
 
 const FormItem = Form.Item;
 

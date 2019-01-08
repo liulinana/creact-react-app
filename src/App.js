@@ -3,7 +3,7 @@ import { Menu, Icon, Switch, Layout, Row, Col} from 'antd';
 import { Route, Link } from "react-router-dom";
 import allMenu from '../src/router/Menu';
 import Breadcrumbs from "./component/Breadcrumbs";
-import { toLogin, isAuthenticated } from './component/container';
+import { toLogin, isAuthenticated } from './component/Container';
 
 const SubMenu = Menu.SubMenu;
 const { Header, Content, Sider: Frame } = Layout;

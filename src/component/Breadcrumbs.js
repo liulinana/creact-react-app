@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Breadcrumb } from 'antd';
-import breadcrumbNameMap from './breadcrumbNameMap';
+import { Breadcrumb, Icon } from 'antd';
+import breadcrumbNameMap from './BreadcrumbNameMap';
+import breadcrumbIconMap from './Icon';
 
 const Breadcrumbs = withRouter((props) => {
+    debugger
     const { location } = props;
     const pathSnippets = location.pathname.split('/').filter(i => i);
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -11,7 +13,7 @@ const Breadcrumbs = withRouter((props) => {
         return (
             <Breadcrumb.Item key={url}>
                 <Link to={url}>
-                    {breadcrumbNameMap[url]}
+                    {<span>{<Icon type={breadcrumbIconMap[url]}/>}<span/>{breadcrumbNameMap[url]}</span>}
                 </Link>
             </Breadcrumb.Item>
         );

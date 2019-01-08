@@ -23,7 +23,7 @@ export const App = Loadable({
 });
 
 export const mockPage = Loadable({
-    loader: () => import('../page/mockPage'),
+    loader: () => import('../page/MockPage'),
     loading: LoadingComponent
 });
 
