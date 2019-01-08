@@ -11,23 +11,22 @@ export default class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let n = this.props.form.getFieldsValue().username;
-        let p = this.props.form.getFieldsValue().password;
+        const  { username, password } = this.props.form.getFieldsValue();
         this.props.form.validateFields((err) => {
             if (!err) {
                 const res = {
-                    name:n,
-                    password:p
+                    username,
+                    password
                 };
                 setCurrentLoginUser(res);
-                if (n === '123' && p === '123') {
+                if (username === '123' && password === '123') {
                     // 表单的路由处理
                     if(isAuthenticated()) {
                         this.props.history.push('/frame')
                         message.success("登陆成功!");
                     }
 
-                } else if (n === '123' && p !== '123') {
+                } else if (username === '123' && password !== '123') {
                     message.error("请输入正确的密码！")
                 } else {
                     message.error("请输入正确的用户名字！")
