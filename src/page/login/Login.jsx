@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Form, Input, Button, message, Row, Col, Icon } from 'antd';
 import './Login.less';
 import { isAuthenticated, setCurrentLoginUser } from '../../component/Container';
+import background from '../../images/d9c59dcb17dacafac0aa06510ea23c52.jpg';
 
 const FormItem = Form.Item;
-
+const loginStyle = {
+    background:`url(${background})`,
+    backgroundRepeat: "noRepeat",
+    backgroundSize: "cover",
+    height: document.body.offsetHeight
+}
 @Form.create()
-export default class Login extends React.Component {
+export default class Login extends Component {
     // static getDerivedStateFromProps(){}
 
     state = {
@@ -31,7 +37,7 @@ export default class Login extends React.Component {
                 if (username === '123' && password === '123') {
                     // 表单的路由处理
                     if(isAuthenticated()) {
-                        this.props.history.push('/frame')
+                        this.props.history.push('/read')
                         message.success("登陆成功!");
                     }
 
@@ -81,8 +87,7 @@ export default class Login extends React.Component {
         const { getFieldDecorator } = form;
         const { status, register, forgotPassword, msgPassword } = this.state;
         return (
-                <div className="login">
-                    {/*<img src={require("../../images/a19ee33c5a26acf618411a4c96224837.jpg")} />*/}
+                <div style={loginStyle}>
                     <div className="box">
                         <p>小仙女才能登陆的系统</p>
                         <br/>

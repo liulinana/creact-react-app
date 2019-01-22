@@ -27,4 +27,9 @@ export const mockPage = Loadable({
     loading: LoadingComponent
 });
 
+export  const ReadingRoom = Loadable({
+    loader: () => import('../page/ReadingRoom/ReadingRoom'),
+    loading: LoadingComponent
+});
+
 

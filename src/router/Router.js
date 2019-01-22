@@ -15,6 +15,7 @@ const store = createStore(
 const route = [
     {path:"/",exact:true,component:Routers.Login},
     {path:"/frame",exact:false,component:Routers.App},
+    {path:"/read",exact:true,component:Routers.ReadingRoom},
 ];
 
 export default class Router extends React.Component{

@@ -5,7 +5,6 @@ import breadcrumbNameMap from './BreadcrumbNameMap';
 import breadcrumbIconMap from './Icon';
 
 const Breadcrumbs = withRouter((props) => {
-    debugger
     const { location } = props;
     const pathSnippets = location.pathname.split('/').filter(i => i);
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
