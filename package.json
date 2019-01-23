@@ -180,5 +180,5 @@
       "@babel/plugin-syntax-dynamic-import"
     ]
   },
-  "proxy": "http://ip/端口号"
+  "proxy": "http://172.16.42.107:1210"
 }
