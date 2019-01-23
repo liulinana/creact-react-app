@@ -3,6 +3,7 @@ import { Form, Input, Button, message, Row, Col, Icon } from 'antd';
 import './Login.less';
 import { isAuthenticated, setCurrentLoginUser } from '../../component/Container';
 import background from '../../images/d9c59dcb17dacafac0aa06510ea23c52.jpg';
+import http from '../../axios/axios';
 
 const FormItem = Form.Item;
 const loginStyle = {
@@ -24,47 +25,87 @@ export default class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const  { username, password } = this.props.form.getFieldsValue();
+        const  { loginName, passwd, email, nickname } = this.props.form.getFieldsValue();
+        const { status } = this.state;
+        const res = {
+            loginname:loginName,
+            loginpw:passwd,
+            email,
+            nickname
+        };
+        const param = {
+            loginName,
+            passwd,
+            email,
+            nickname
+        };
         this.props.form.validateFields((err) => {
             if (!err) {
-                const res = {
-                    username,
-                    password
-                };
                 if(this.state.status === "Log in"){
-                    setCurrentLoginUser(res)
+                    setCurrentLoginUser(param)
                 }
-                if (username === '123' && password === '123') {
-                    // 表单的路由处理
-                    if(isAuthenticated()) {
-                        this.props.history.push('/read')
-                        message.success("登陆成功!");
-                    }
+                if(status === "Log in"){
+                    http.post(`/princess/login`,param).then(
+                        res => {
 
-                } else if (username === '123' && password !== '123') {
-                    message.error("请输入正确的密码！")
-                } else {
-                    message.error("请输入正确的用户名字！")
+                        }
+                    )
+                }else if(status === "register now!"){
+                    http.post(`/princess/register`,res).then(
+                        res => {
+
+                        }
+                    )
+                }else{
+                    http.get(`/princess/getuserinfo?loginName=${loginName}&passwd=${passwd}&email=${email}&nickname=${nickname}`).then(
+                        res => {
+
+                        }
+                    )
                 }
+                // if (username === '123' && password === '123') {
+                //     // 表单的路由处理
+                //     if(isAuthenticated()) {
+                //         this.props.history.push('/read')
+                //         message.success("登陆成功!");
+                //     }
+                //
+                // } else if (username === '123' && password !== '123') {
+                //     message.error("请输入正确的密码！")
+                // } else {
+                //     message.error("请输入正确的用户名字！")
+                // }
             }
         });
-
     };
 
     handelRegister = () => {
         this.props.form.resetFields();
         const { register } = this.state;
         if(register === "register now!"){
-            this.setState({status:"register", register:"Log in", msgPassword:"Password"})
+            this.setState({
+                status:"register",
+                register:"Log in",
+                msgPassword:"Password"
+            })
         }else{
-            this.setState({status:"Log in", register:"register now!", msgPassword:"Password", forgotPassword: 'Forgot password'})
+            this.setState({
+                status:"Log in",
+                register:"register now!",
+                msgPassword:"Password",
+                forgotPassword: 'Forgot password'
+            })
         }
-
     };
 
     handelPassword = () => {
         this.props.form.resetFields();
-        this.setState({status:"reset password", register:"Log in", forgotPassword: "", msgPassword:"newPassword"})
+        this.setState({
+            status:"reset password",
+            register:"Log in",
+            forgotPassword: "",
+            msgPassword:"newPassword"
+        })
     };
 
     regType = (rule, value, callback) => {
@@ -94,36 +135,68 @@ export default class Login extends Component {
                         <div className="loginWrap">
                             <Form className="login-form" onSubmit={this.handleSubmit}>
                                 <FormItem>
-                                    {getFieldDecorator('username', {
+                                    {getFieldDecorator('loginName', {
                                         rules: [{ required: true, message: '请输入用户名!' }],
                                     })(
-                                        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                               placeholder="Username"
+                                        <Input
+                                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                            placeholder="Username"
                                         />
                                     )}
                                 </FormItem>
                                 <FormItem>
-                                    {getFieldDecorator('password', {
+                                    {getFieldDecorator('passwd', {
                                         rules: [{ required: true, message: status === "reset password"?"请输入新密码!":"请输入密码!" }],
                                     })(
-                                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                               type="password" placeholder={msgPassword}
+                                        <Input
+                                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                            type="password" placeholder={msgPassword}
                                         />,
                                     )}
                                 </FormItem>
                                 {
-                                    status === "Log in" ? null :
+                                    status === "Log in" ?null: status !== "register" ?
                                         <FormItem>
                                             {getFieldDecorator('email', {
                                                 rules: [{ required: true, message: '请输入邮箱!' },
                                                     { validator: this.regType}
                                                 ],
                                             })(
-                                                <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                       type="email" placeholder="Email"
+                                                <Input
+                                                    prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                    type="email" placeholder="Email"
                                                 />,
                                             )}
                                         </FormItem>
+                                        :
+                                        <div>
+                                            <FormItem>
+                                                {getFieldDecorator('email', {
+                                                    rules: [{ required: true, message: '请输入邮箱!' },
+                                                        { validator: this.regType}
+                                                    ],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="Email"
+                                                    />,
+                                                )}
+                                            </FormItem>
+                                            <FormItem>
+                                                {getFieldDecorator('nickname', {
+                                                    rules: [{ required: true, message: '请输入昵称!' },
+                                                        { validator: this.regType}
+                                                    ],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="heart-o" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="nickname"
+                                                    />,
+                                                )}
+                                            </FormItem>
+                                        </div>
+
+
                                 }
                                 <Row>
                                     <Col span={12} style={{textAlign: "left"}}>
@@ -135,10 +208,11 @@ export default class Login extends Component {
                                 </Row>
                                 <br/>
                                 <Row>
-                                    <Button type="primary"
-                                            htmlType="submit"
-                                            className="login-form-button"
-                                            style={{width: "100%"}}
+                                    <Button
+                                        type="primary"
+                                        htmlType="submit"
+                                        className="login-form-button"
+                                        style={{width: "100%"}}
                                     >
                                         {status}
                                     </Button>
