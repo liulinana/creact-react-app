@@ -35,7 +35,7 @@ class App extends Component {
         collapsed: false,
     };
 
-    componentWillMount () {
+    componentDidMount () {
         if(isAuthenticated()){}
         else{
             this.props.history.push('/')
