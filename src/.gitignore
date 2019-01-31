@@ -24,7 +24,6 @@ desktop.ini
 
 .idea
 public
-node_modules
 build/config/proxy-table.js
 *.sublime-project
 *.sublime-workspace
