@@ -63,18 +63,18 @@ export default class Login extends Component {
                         }
                     )
                 }
-                // if (username === '123' && password === '123') {
-                //     // 表单的路由处理
-                //     if(isAuthenticated()) {
-                //         this.props.history.push('/read')
-                //         message.success("登陆成功!");
-                //     }
-                //
-                // } else if (username === '123' && password !== '123') {
-                //     message.error("请输入正确的密码！")
-                // } else {
-                //     message.error("请输入正确的用户名字！")
-                // }
+                if (loginName === '123' && passwd === '123') {
+                    // 表单的路由处理
+                    if(isAuthenticated()) {
+                        this.props.history.push('/read')
+                        message.success("登陆成功!");
+                    }
+
+                } else if (loginName === '123' && passwd !== '123') {
+                    message.error("请输入正确的密码！")
+                } else {
+                    message.error("请输入正确的用户名字！")
+                }
             }
         });
     };
