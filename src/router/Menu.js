@@ -75,6 +75,7 @@ const allMenu = [
         name: '项目地址',
         url: 'frame/follow',
         icon: 'heart-o',
-    }]
+    }
+];
 
 export default allMenu;
