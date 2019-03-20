@@ -30,7 +30,7 @@ export default class MockPage extends React.Component {
 
     render() {
         return (
-                <div stylename="box">
+                <div className="box">
                     <Button onClick={this.handelSearch}>接口</Button>
                     <Button onClick={this.handelRedux}>redux异步</Button>
                     <Button onClick={this.handelClick}>dispatch</Button>
