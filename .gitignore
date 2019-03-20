@@ -22,7 +22,7 @@ desktop.ini
 
 *.log
 
-idea
+.idea
 public
 build/config/proxy-table.js
 *.sublime-project
