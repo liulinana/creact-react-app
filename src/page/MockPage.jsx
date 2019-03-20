@@ -13,6 +13,7 @@ import http from '../axios/axios';
 @Form.create()
 export default class MockPage extends React.Component {
     // static getDerivedStateFromProps(){}
+
     handelClick = () => {
         this.props.dispatch(addTodo("ddddddd"))
     };
