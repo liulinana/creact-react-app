@@ -24,6 +24,7 @@ export default class MockPage extends React.Component {
     };
 
     handelRedux = () => {
+        console.log("withRouter",this.props)
         this.props.dispatch(this.getModels({pageSize:10}))
     };
 

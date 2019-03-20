@@ -26,7 +26,7 @@ const ajaxPromise =function (method, url, data){
                 url,
                 method: method,
                 headers:{...headers},
-                data: data
+                data: JSON.stringify(data)
             }).then(
             (res) => {
                 resolve(res)
@@ -41,16 +41,14 @@ const ajaxPromise =function (method, url, data){
 };
 
 http.get = function (url,data) {
-    let params = JSON.stringify(data);
     let method = "get";
-    return ajaxPromise(method,url,params)
+    return ajaxPromise(method,url,data)
 
 };
 
 http.post = function (url,data) {
-    let params = JSON.stringify(data);
     let method = "post";
-    return ajaxPromise(method,url,params)
+    return ajaxPromise(method,url,data)
 
 };
 

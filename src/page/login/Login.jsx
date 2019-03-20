@@ -45,23 +45,23 @@ export default class Login extends Component {
                     setCurrentLoginUser(param)
                 }
                 if(status === "Log in"){
-                    http.post(`/princess/login`,param).then(
-                        res => {
-
-                        }
-                    )
+                    // http.post(`/princess/login`,param).then(
+                    //     res => {
+                    //
+                    //     }
+                    // )
                 }else if(status === "register now!"){
-                    http.post(`/princess/register`,res).then(
-                        res => {
-
-                        }
-                    )
+                    // http.post(`/princess/register`,res).then(
+                    //     res => {
+                    //
+                    //     }
+                    // )
                 }else{
-                    http.get(`/princess/getuserinfo?loginName=${loginName}&passwd=${passwd}&email=${email}&nickname=${nickname}`).then(
-                        res => {
-
-                        }
-                    )
+                    // http.get(`/princess/getuserinfo?loginName=${loginName}&passwd=${passwd}&email=${email}&nickname=${nickname}`).then(
+                    //     res => {
+                    //
+                    //     }
+                    // )
                 }
                 if (loginName === '123' && passwd === '123') {
                     // 表单的路由处理
