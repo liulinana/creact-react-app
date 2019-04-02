@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68be7ec0-997c-4b8a-9ea6-5bb2edd1e29d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/axios/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios/axios.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -94,7 +93,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="20" />
-          <entry key="js" value="98" />
+          <entry key="js" value="113" />
           <entry key="json" value="4" />
           <entry key="jsx" value="147" />
           <entry key="txt" value="58" />
@@ -104,7 +103,7 @@
         <counts>
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="147" />
-          <entry key="JavaScript" value="98" />
+          <entry key="JavaScript" value="113" />
           <entry key="PLAIN_TEXT" value="78" />
         </counts>
       </usages-collector>
@@ -127,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/axios/axios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+            <state relative-caret-position="359">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -381,7 +380,7 @@
       <workItem from="1552985181979" duration="4093000" />
       <workItem from="1553139864004" duration="1506000" />
       <workItem from="1553504376603" duration="249000" />
-      <workItem from="1554172869391" duration="1207000" />
+      <workItem from="1554172869391" duration="1815000" />
     </task>
     <task id="LOCAL-00001" summary="will改成did">
       <created>1548919359323</created>
@@ -443,7 +442,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22580000" />
+    <option name="totallyTimeSpent" value="23188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
@@ -681,8 +680,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/axios/axios.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        <state relative-caret-position="359">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

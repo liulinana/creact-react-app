@@ -31,24 +31,19 @@ const ajaxPromise =function (method, url, data, download,pic){
             return res.blob();
         }).then(
             (blob)=>{
-                if(pic){
-                    const aLink = document.createElement('a');
-                    document.body.appendChild(aLink);
-                    aLink.style.display='none';
-                    const objectUrl = window.URL.createObjectURL(blob);
-                    aLink.href = objectUrl;
-                    aLink.download = typeof data === 'string' ? data : '图片';
-                    aLink.click();
-                    document.body.removeChild(aLink);
-                }else{
-                    const a = document.createElement('a');
-                    const url = window.URL.createObjectURL(blob);   // 获取 blob 本地文件连接 (blob 为纯二进制对象，不能够直接保存到磁盘上)
-                    const filename = typeof data === 'string' ? data : '导出.xls';
-                    a.href = url;
-                    a.download = filename;
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                }
+                const aLink = document.createElement('a');
+                aLink.style.display='none';
+                const objectUrl = window.URL.createObjectURL(blob);
+                document.body.appendChild(aLink);
+                aLink.href = objectUrl;
+                aLink.download = typeof data === 'string'
+                    ? data
+                    : pic
+                        ?'图片'
+                        :'导出.xls';
+                aLink.click();
+                document.body.removeChild(aLink);
+                window.URL.revokeObjectURL(url);
             }
         )
     } else {
