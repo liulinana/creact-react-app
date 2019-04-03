@@ -4,24 +4,37 @@ import { Route, Link } from "react-router-dom";
 import allMenu from '../src/router/Menu';
 import Breadcrumbs from "./component/Breadcrumbs";
 import { toLogin, isAuthenticated } from './component/Container';
+import {Error404} from './router/Routers.config'
 
 const SubMenu = Menu.SubMenu;
 const { Header, Content, Sider: Frame } = Layout;
 
 function RouteWithSubRoutes(route) {
     if(route.children&&route.children.length){
-       return route.children.map((v,k)=><Route
-            path={`/${v.url}`}
-            exact={v.exact}
-            component={v.component}
-            key={k}
-        />)
+       return route.children.map((v,k)=>{
+           if ("url" in v){
+               return <Route
+                   path={`/${v.url}`}
+                   exact={v.exact}
+                   component={v.component}
+                   key={k}
+               />
+           }else{
+               return <Route
+                   path="/frame/error"
+                   exact={false}
+                   component={Error404}
+                   key="Error404"
+               />
+           }
+       })
     }else {
         return (
             <Route
                 path={`/${route.url}`}
                 exact={route.exact}
                 component={route.component}
+                key={route.url}
             />
         )
     }
@@ -65,7 +78,7 @@ class App extends Component {
     toLogin = () => {
         toLogin();
         this.props.history.push(`/`)
-    }
+    };
 
     render() {
         return (
@@ -119,13 +132,13 @@ class App extends Component {
                                 onClick={this.handleClick}
                             >
                                 {
-                                    allMenu.map((subMenu) => {
+                                    allMenu.map((subMenu,k) => {
                                         if (subMenu.children && subMenu.children.length) {
                                             return (
                                                 <SubMenu key={subMenu.url}
                                                          title={
                                                              <span>
-                                                                 <Icon type={subMenu.icon}/>
+                                                                 <Icon type={subMenu.icon} key={k}/>
                                                                  <span>
                                                                      {subMenu.name}
                                                                  </span>
@@ -133,11 +146,17 @@ class App extends Component {
                                                          }
                                                 >
                                                     {
-                                                        subMenu.children.map(menu => (
-                                                            <Menu.Item key={menu.url}>
-                                                                <Link to={`/${menu.url}`}>{menu.name}</Link>
-                                                            </Menu.Item>
-                                                        ))
+                                                        subMenu.children.map((menu,k) => {
+                                                            if ("url" in menu) {
+                                                                return <Menu.Item key={menu.url}>
+                                                                        <Link to={`/${menu.url}`}>{menu.name}</Link>
+                                                                    </Menu.Item>
+                                                            }else {
+                                                                return <Menu.Item key={k}>
+                                                                    <Link to={`/frame/error`}>{menu.name}</Link>
+                                                                </Menu.Item>
+                                                            }
+                                                        })
                                                     }
                                                 </SubMenu>
                                             )
@@ -145,7 +164,7 @@ class App extends Component {
                                         return (
                                             <Menu.Item key={subMenu.url}>
                                                 <Link to={`/${subMenu.url}`}>
-                                                    <Icon type={subMenu.icon} />
+                                                    <Icon type={subMenu.icon} key={subMenu.icon} />
                                                     <span stylename="nav-text">{subMenu.name}</span>
                                                 </Link>
                                             </Menu.Item>

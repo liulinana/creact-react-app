@@ -12,7 +12,17 @@ const Breadcrumbs = withRouter((props) => {
         return (
             <Breadcrumb.Item key={url}>
                 <Link to={url}>
-                    {<span>{<Icon type={breadcrumbIconMap[url]}/>}<span/>{breadcrumbNameMap[url]}</span>}
+                    {
+                        <span>
+                            {
+                                breadcrumbIconMap[url]?<Icon type={breadcrumbIconMap[url]}/>:null
+                            }
+                        <span/>
+                            {
+                                breadcrumbNameMap[url]
+                            }
+                        </span>
+                    }
                 </Link>
             </Breadcrumb.Item>
         );

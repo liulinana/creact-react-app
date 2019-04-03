@@ -51,11 +51,11 @@ export default class Login extends Component {
                     //     }
                     // )
                 }else if(status === "register now!"){
-                    // http.post(`/princess/register`,res).then(
-                    //     res => {
-                    //
-                    //     }
-                    // )
+                    http.post(`/princess/register`,res).then(
+                        res => {
+
+                        }
+                    )
                 }else{
                     // http.get(`/princess/getuserinfo?loginName=${loginName}&passwd=${passwd}&email=${email}&nickname=${nickname}`).then(
                     //     res => {

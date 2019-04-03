@@ -44,8 +44,8 @@ export default class ReadingRoom extends Component {
         return (
             <div>
                 <Row>
-                    <Col>
-
+                    <Col {...layout}>
+                        <Form.Item {...formLayout}></Form.Item>
                     </Col>
                 </Row>
                 <Button onClick={this.handelClick}>系统页面</Button>
