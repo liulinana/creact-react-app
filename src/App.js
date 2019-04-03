@@ -24,7 +24,7 @@ function RouteWithSubRoutes(route) {
                    path="/frame/error"
                    exact={false}
                    component={Error404}
-                   key="Error404"
+                   key={k}
                />
            }
        })
