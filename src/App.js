@@ -14,7 +14,7 @@ function RouteWithSubRoutes(route) {
        return route.children.map((v,k)=>{
            if ("url" in v){
                return <Route
-                   path={`/${v.url}`}
+                   path={`/frame${v.url}`}
                    exact={v.exact}
                    component={v.component}
                    key={k}
@@ -31,7 +31,7 @@ function RouteWithSubRoutes(route) {
     }else {
         return (
             <Route
-                path={`/${route.url}`}
+                path={`/frame${route.url}`}
                 exact={route.exact}
                 component={route.component}
                 key={route.url}
@@ -149,7 +149,7 @@ class App extends Component {
                                                         subMenu.children.map((menu,k) => {
                                                             if ("url" in menu) {
                                                                 return <Menu.Item key={menu.url}>
-                                                                        <Link to={`/${menu.url}`}>{menu.name}</Link>
+                                                                        <Link to={`/frame${menu.url}`}>{menu.name}</Link>
                                                                     </Menu.Item>
                                                             }else {
                                                                 return <Menu.Item key={k}>
@@ -163,7 +163,7 @@ class App extends Component {
                                         }
                                         return (
                                             <Menu.Item key={subMenu.url}>
-                                                <Link to={`/${subMenu.url}`}>
+                                                <Link to={`/frame${subMenu.url}`}>
                                                     <Icon type={subMenu.icon} key={subMenu.icon} />
                                                     <span stylename="nav-text">{subMenu.name}</span>
                                                 </Link>

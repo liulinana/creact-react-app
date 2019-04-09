@@ -21,7 +21,7 @@ coverage.html
 desktop.ini
 
 *.log
-
+.idea/workspace.xml
 .idea
 public
 build/config/proxy-table.js
