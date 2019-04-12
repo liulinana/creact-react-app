@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form, Button } from 'antd'
+import { Form, Button } from 'antd';
+import { NavBar, Icon } from 'antd-mobile';
 import { Containerization } from '../component/Container';
 import { addTodo } from '../redux/actions';
 import { ActionCreator } from '../request/Middleware';
@@ -32,6 +33,15 @@ export default class MockPage extends React.Component {
     render() {
         return (
                 <div className="box">
+                    <NavBar
+                        mode="light"
+                        icon={<Icon type="left" />}
+                        onLeftClick={() => console.log('onLeftClick')}
+                        rightContent={[
+                            <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+                            <Icon key="1" type="ellipsis" />,
+                        ]}
+                    >NavBar</NavBar>
                     <Button onClick={this.handelSearch}>接口</Button>
                     <Button onClick={this.handelRedux}>redux异步</Button>
                     <Button onClick={this.handelClick}>dispatch</Button>
