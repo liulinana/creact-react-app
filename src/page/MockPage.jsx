@@ -4,6 +4,7 @@ import { Containerization } from '../component/Container';
 import { addTodo } from '../redux/actions';
 import { ActionCreator } from '../request/Middleware';
 import http from '../axios/axios';
+import * as QrCode from 'qrcode.react'
 
 @Containerization(
     state => ({
@@ -35,6 +36,7 @@ export default class MockPage extends React.Component {
                     <Button onClick={this.handelRedux}>redux异步</Button>
                     <Button onClick={this.handelClick}>dispatch</Button>
                     <p>{this.props.selectsData}</p>
+                    <QrCode value={"aa"} size={120} />
                 </div>
         )
     }
