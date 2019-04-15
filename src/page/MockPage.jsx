@@ -5,7 +5,9 @@ import { Containerization } from '../component/Container';
 import { addTodo } from '../redux/actions';
 import { ActionCreator } from '../request/Middleware';
 import http from '../axios/axios';
-import * as QrCode from 'qrcode.react'
+import * as QrCode from 'qrcode.react';
+import * as Barcode from 'jsbarcode';
+import '../style/style.less'
 
 @Containerization(
     state => ({
@@ -16,6 +18,19 @@ import * as QrCode from 'qrcode.react'
 export default class MockPage extends React.Component {
     // static getDerivedStateFromProps(){}
 
+    /**
+     * @条形码barcode
+     * @二维码QrCode
+     */
+    barcode;
+    componentDidMount() {
+        Barcode(this.barcode, "aa", {
+            displayValue: false,
+            width: 1,
+            height: 35,
+            margin: 0,
+        })
+    }
     handelClick = () => {
         this.props.dispatch(addTodo("ddddddd"))
     };
@@ -47,6 +62,13 @@ export default class MockPage extends React.Component {
                     <Button onClick={this.handelClick}>dispatch</Button>
                     <p>{this.props.selectsData}</p>
                     <QrCode value={"aa"} size={120} />
+                    <div className="barcode-box">
+                        <svg
+                            ref={ref => {
+                                this.barcode = ref
+                            }}
+                        />
+                    </div>
                 </div>
         )
     }
