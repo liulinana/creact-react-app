@@ -8,6 +8,8 @@ import http from '../axios/axios';
 import * as QrCode from 'qrcode.react';
 import * as Barcode from 'jsbarcode';
 import '../style/style.less'
+import Zmage from 'react-zmage'
+import background from '../images/d9c59dcb17dacafac0aa06510ea23c52.jpg';
 
 @Containerization(
     state => ({
@@ -68,6 +70,9 @@ export default class MockPage extends React.Component {
                                 this.barcode = ref
                             }}
                         />
+                    </div>
+                    <div style={{width: 100, height: 100, overflow: "hidden"}}>
+                        <Zmage src={background} alt="图片介绍文字"/>
                     </div>
                 </div>
         )
