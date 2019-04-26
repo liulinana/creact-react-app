@@ -59,7 +59,7 @@ const ajaxPromise =function (method, url, data, download,pic){
                 }
             ).catch(
                 err => {
-                    message.error(err.message, 3)
+                    message.error(err.message, 3);
                     reject(err);
                 }
             )
