@@ -187,11 +187,9 @@ class App extends Component {
                                     position: 'relative'
                                 }}
                             >
-                                <div>
                                     {allMenu.map((route, i) =>
                                         <RouteWithSubRoutes key={i} {...route} />
                                     )}
-                                </div>
                             </Content>
                         </Layout>
                     </Layout>
