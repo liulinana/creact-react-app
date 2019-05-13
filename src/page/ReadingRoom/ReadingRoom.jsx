@@ -38,6 +38,7 @@ export default class ReadingRoom extends Component {
         }//实时渲染
         render();
     };
+
     render () {
         const layout = {
             sx: 24,
@@ -77,7 +78,6 @@ export default class ReadingRoom extends Component {
                 </Row>
                 <Button onClick={this.handelClick}>系统页面</Button>
                 <div onload={this.threeStart()}>
-                    <div id="canvas-frame"></div>
                 </div>
             </div>
         )

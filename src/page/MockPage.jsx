@@ -12,7 +12,6 @@ import Zmage from 'react-zmage'
 import background from '../images/d9c59dcb17dacafac0aa06510ea23c52.jpg';
 
 const FormItem =  Form.Item;
-
 @Containerization(
     state => ({
         selectsData: state.todos.selectsData,
@@ -151,15 +150,6 @@ export default class MockPage extends React.Component {
                             rowKey={record => record.id}
                         />
                     </div>
-                    {/*<NavBar*/}
-                        {/*mode="light"*/}
-                        {/*icon={<Icon type="left" />}*/}
-                        {/*onLeftClick={() => console.log('onLeftClick')}*/}
-                        {/*rightContent={[*/}
-                            {/*<Icon key="0" type="search" style={{ marginRight: '16px' }} />,*/}
-                            {/*<Icon key="1" type="ellipsis" />,*/}
-                        {/*]}*/}
-                    {/*>NavBar</NavBar>*/}
                     <Button onClick={this.handelRedux}>redux异步</Button>
                     <Button onClick={this.handelClick}>dispatch</Button>
                     <p>{this.props.selectsData}</p>
@@ -174,6 +164,16 @@ export default class MockPage extends React.Component {
                     <div style={{width: 100, height: 100, overflow: "hidden", margin: '40px 0'}}>
                         <Zmage src={background} alt="图片介绍文字"/>
                     </div>
+                    <p>h5应用</p>
+                    <NavBar
+                        mode="light"
+                        icon={<Icon type="left" />}
+                        onLeftClick={() => console.log('onLeftClick')}
+                        rightContent={[
+                            <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+                            <Icon key="1" type="ellipsis" />,
+                        ]}
+                    >NavBar</NavBar>
                 </div>
         )
     }
