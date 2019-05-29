@@ -77,8 +77,8 @@ export default class ReadingRoom extends Component {
                     </Col>
                 </Row>
                 <Button onClick={this.handelClick}>系统页面</Button>
-                <div onload={this.threeStart()}>
-                </div>
+                {/*<div onload={this.threeStart()}>*/}
+                {/*</div>*/}
             </div>
         )
     }

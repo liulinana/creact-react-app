@@ -182,7 +182,9 @@ class App extends Component {
                                     background: '#fff',
                                     padding: 24,
                                     margin: 0,
-                                    minHeight: 280,
+                                    minHeight: 610,
+                                    height: 610,
+                                    maxHeight: 610,
                                     overflow: 'scroll',
                                     position: 'relative'
                                 }}
