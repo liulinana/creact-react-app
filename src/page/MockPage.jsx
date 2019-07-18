@@ -2,7 +2,6 @@ import React from 'react'
 import { Form, Button, Table, Row, Col, Input } from 'antd';
 import { NavBar, Icon } from 'antd-mobile';
 import { Containerization } from '../component/Container';
-import { addTodo } from '../redux/actions';
 import { ActionCreator } from '../request/Middleware';
 import http from '../axios/axios';
 import * as QrCode from 'qrcode.react';
@@ -10,6 +9,8 @@ import * as Barcode from 'jsbarcode';
 import '../style/style.less'
 import Zmage from 'react-zmage'
 import background from '../images/d9c59dcb17dacafac0aa06510ea23c52.jpg';
+
+export const PAGE_ROUTE = '/mockPage';
 
 const FormItem =  Form.Item;
 @Containerization(
@@ -49,10 +50,10 @@ export default class MockPage extends React.Component {
         })
     }
     handelClick = () => {
-        this.props.dispatch(addTodo("ddddddd"))
+        // this.props.dispatch(addTodo("ddddddd"))
     };
 
-    getModels = (data) => ActionCreator("ADD_TODO_S",`/api/接口`,'get')();
+    getModels = (data) => ActionCreator("ADD_TODO_S",`/show?id=${data}`,'get')();
 
     handelSearch = () => {
         const vo = {
@@ -70,7 +71,8 @@ export default class MockPage extends React.Component {
 
     handelRedux = () => {
         console.log("withRouter",this.props);
-        this.props.dispatch(this.getModels({pageSize:10}))
+        let id = this.props.form.getFieldValue("id");
+        this.props.dispatch(this.getModels(id));
     };
 
     render() {

@@ -21,6 +21,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const RouteConfigGrabWebpackPlugin = require('sx-route-config-grab-webpack-plugin');
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -441,6 +442,20 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
+    }),
+
+    new RouteConfigGrabWebpackPlugin({
+        // mode: 'dir',
+        mode: 'variable',
+        codeSplitting: false,
+        paths: [
+            path.resolve(__dirname, '../src/pages/**/*.jsx'),
+        ],
+        pagePath: path.resolve(__dirname, '../src/pages'),
+        ignored: [],
+        output: path.resolve(__dirname, '../src/page-route.js'),
+        watch: false,
+        template: path.resolve(__dirname, '../src/page-route-template.ejs'),
     }),
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.

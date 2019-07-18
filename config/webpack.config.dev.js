@@ -17,6 +17,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const RouteConfigGrabWebpackPlugin = require('sx-route-config-grab-webpack-plugin');
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -340,6 +341,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+    }),
+
+    new RouteConfigGrabWebpackPlugin({
+        // mode: 'dir',
+        mode: 'variable',
+        codeSplitting: false,
+        paths: [
+            path.resolve(__dirname, '../src/page/**/*.jsx'),
+        ],
+        pagePath: path.resolve(__dirname, '../src/page'),
+        ignored: [],
+        output: path.resolve(__dirname, '../src/page-route.js'),
+        watch: true,
+        template: path.resolve(__dirname, '../src/page-route-template.ejs'),
     }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:

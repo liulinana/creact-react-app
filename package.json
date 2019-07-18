@@ -163,6 +163,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "react-dev-utils": "^6.1.1",
     "react-scripts": "^3.0.0",
+    "sx-route-config-grab-webpack-plugin": "^1.0.9",
     "uglify-js-brunch": "^2.10.0"
   },
   "babel": {

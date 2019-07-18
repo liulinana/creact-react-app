@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Icon, Switch, Layout, Row, Col} from 'antd';
 import { Route, Link } from "react-router-dom";
-import allMenu from '../src/router/Menu';
+import { allMenu } from '../src/router/Menu';
 import Breadcrumbs from "./component/Breadcrumbs";
 import { toLogin, isAuthenticated } from './component/Container';
 import {Error404} from './router/Routers.config'
@@ -40,7 +40,7 @@ function RouteWithSubRoutes(route) {
     }
 }
 
-class App extends Component {
+export default class App extends Component {
 
     state={
         theme: 'dark',
@@ -165,7 +165,7 @@ class App extends Component {
                                             <Menu.Item key={subMenu.url}>
                                                 <Link to={`/frame${subMenu.url}`}>
                                                     <Icon type={subMenu.icon} key={subMenu.icon} />
-                                                    <span stylename="nav-text">{subMenu.name}</span>
+                                                    <span className="nav-text">{subMenu.name}</span>
                                                 </Link>
                                             </Menu.Item>
                                         )
@@ -200,5 +200,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;

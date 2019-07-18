@@ -12,6 +12,8 @@ const loginStyle = {
     backgroundSize: "cover",
     height: document.body.offsetHeight
 }
+
+export const PAGE_ROUTE = '/';
 @Form.create()
 export default class Login extends Component {
     // static getDerivedStateFromProps(){}
@@ -66,7 +68,7 @@ export default class Login extends Component {
                 if (loginName === '123' && passwd === '123') {
                     // 表单的路由处理
                     if(isAuthenticated()) {
-                        this.props.history.push('/read')
+                        this.props.history.push('/read');
                         message.success("登陆成功!");
                     }
 

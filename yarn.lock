@@ -5578,6 +5578,11 @@ ejs@^2.5.7:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
 
+ejs@^2.6.1:
+  version "2.6.2"
+  resolved "http://172.16.132.188:4873/ejs/-/ejs-2.6.2.tgz#3a32c63d1cd16d11266cd4703b14fec4e74ab4f6"
+  integrity sha1-OjLGPRzRbREmbNRwOxT+xOdKtPY=
+
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.47:
   version "1.3.85"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.85.tgz#5c46f790aa96445cabc57eb9d17346b1e46476fe"
@@ -7097,7 +7102,7 @@ globby@8.0.1:
     pify "^3.0.0"
     slash "^1.0.0"
 
-globby@8.0.2:
+globby@8.0.2, globby@^8.0.1:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/globby/-/globby-8.0.2.tgz#5697619ccd95c5275dbb2d6faa42087c1a941d8d"
   dependencies:
@@ -14740,6 +14745,22 @@ sw-toolbox@^3.4.0:
   dependencies:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
+
+sx-grab-files@^1.0.1:
+  version "1.0.1"
+  resolved "http://172.16.132.188:4873/sx-grab-files/-/sx-grab-files-1.0.1.tgz#63137b1bc2ed7bc30096bd40b1b807f12cccec4b"
+  integrity sha512-SCYpnSHJNI+wHDSA/k0magh5b+zNb2/gXmPoXD+T5lLH3RlXSUIrJbmeh0KaYh3u+HqaqR9xIqwj4x4PF7PF/Q==
+  dependencies:
+    chokidar "^2.0.4"
+    globby "^8.0.1"
+
+sx-route-config-grab-webpack-plugin@^1.0.9:
+  version "1.0.9"
+  resolved "http://172.16.132.188:4873/sx-route-config-grab-webpack-plugin/-/sx-route-config-grab-webpack-plugin-1.0.9.tgz#a9487d3cc7e5bd5623ab013969b31cffdec0d387"
+  integrity sha512-JyiSdqm4LP/VbVS4DifheAct5yXL9uu2H2EE3JvYY6lHQ/f/UmQjH5kNhOvQI7HS33gyki0MAppG8iix3h+1Zw==
+  dependencies:
+    ejs "^2.6.1"
+    sx-grab-files "^1.0.1"
 
 symbol-observable@^1.2.0:
   version "1.2.0"

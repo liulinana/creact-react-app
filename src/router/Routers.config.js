@@ -1,7 +1,7 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 
-const LoadingComponent = ({ isLoading, error }) => {
+export const LoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -24,11 +24,6 @@ export const Login = Loadable({
 });
 export const App = Loadable({
     loader: () => import('../App'),
-    loading: LoadingComponent,
-});
-
-export const mockPage = Loadable({
-    loader: () => import('../page/MockPage'),
     loading: LoadingComponent,
 });
 

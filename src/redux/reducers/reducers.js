@@ -34,7 +34,7 @@ export function todos(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO_S:
             const data = null;
-            action.promise().then(res=>({data:res}))
+            action.promise().then(res=>({data:res}));
             return {
                 ...state,
                 selectsData:data ===null?"null":data

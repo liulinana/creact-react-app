@@ -1,12 +1,30 @@
-import *as Routers from './Routers.config'
+import routes from "../page-route";
+import Loadable from "react-loadable";
+import *as Routers from './Routers.config';
 
-const allMenu = [
+const allRoute = routes.map(item => (
+    {
+        path:item.path,
+        component: Loadable({
+            loader: item.component,
+            loading: Routers.LoadingComponent,
+        }),
+        key:item.path
+    }
+));
+
+const routePage = (path) => {
+     let page = allRoute.find(item => item.path === path);
+     return page.component
+};
+
+export const allMenu = [
     {
         name: '首页',
         url: '/home',
         exact:true,
         icon: 'home',
-        component:Routers.mockPage
+        component:routePage('/mockPage')
     }, {
         name: '音乐模块',
         url: '/mockPage',
@@ -17,7 +35,7 @@ const allMenu = [
                 name: '音乐系列',
                 url: '/mockPage/mus',
                 exact:true,
-                component: Routers.mockPage
+                component: routePage('/mockPage')
             },
         ]
     },{
@@ -78,5 +96,3 @@ const allMenu = [
         icon: 'heart-o',
     }
 ];
-
-export default allMenu;
