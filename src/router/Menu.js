@@ -15,6 +15,7 @@ const allRoute = routes.map(item => (
 
 const routePage = (path) => {
      let page = allRoute.find(item => item.path === path);
+
      return page.component
 };
 
